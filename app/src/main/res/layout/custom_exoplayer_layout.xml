@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/play_pause_button_container"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="false" /> <!-- Disable default controls -->
+
+    <ImageButton
+        android:id="@+id/btn_play_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_play_exoplayer" /> <!-- Replace with your play icon -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/tv_current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:layout_marginEnd="8dp"/>
+
+        <SeekBar
+            android:id="@+id/exo_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_total_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="#00BFA5"
+        android:indeterminate="true"
+        android:scrollbarSize="80dp"
+        android:visibility="gone" />
+
+</FrameLayout>
