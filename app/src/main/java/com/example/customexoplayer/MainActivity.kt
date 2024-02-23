@@ -26,24 +26,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         customExoPlayerView = findViewById(R.id.custom_exoplayer_view)
         val imageView = ZoomImageView(this)
-
-        loadImage(imageView)
-
-        Log.e("NetworkType",NetworkType.WIFI.typeName)
-        Log.e("NetworkType",NetworkType.MOBILE.typeName)
-        //initializePlayer()
+        loadImage(imageView,"")
+        initializePlayer()
     }
 
-    private fun loadImage(imageView: ZoomImageView) {
-        val path = "/sdcard/.transforms/synthetic/picker/0/com.android.providers.media.photopicker/media/1000002268.jpg"
-
+    private fun loadImage(imageView: ZoomImageView,imagePath: String) {
         val requestOptions = RequestOptions()
             .skipMemoryCache(true)
             .fitCenter()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
 
         Glide.with(applicationContext)
-            .load(path)
+            .load(imagePath.toUri())
             .into(imageView)
     }
     fun getPathFromUri(context: Context, contentUri: Uri): String? {
